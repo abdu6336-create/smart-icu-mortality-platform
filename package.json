@@ -1,0 +1,21 @@
+{
+  "name": "smart-icu-mortality-platform",
+  "version": "1.0.0",
+  "description": "AI-powered executive platform for ICU mortality risk prediction and healthcare leadership intelligence.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "preview": "npx serve ."
+  },
+  "keywords": [
+    "healthcare",
+    "icu",
+    "mortality",
+    "predictive-analytics",
+    "executive-dashboard",
+    "ai",
+    "health-informatics"
+  ],
+  "author": "Abdulmajeed Alzughaibi",
+  "license": "SEE LICENSE IN LICENSE"
+}
