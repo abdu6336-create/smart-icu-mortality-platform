@@ -1817,8 +1817,114 @@ body.login-unlocked .container{
 }
 </style>
 
+
+<style>
+#fixedSidebarMenu{
+ position:fixed;
+ top:16px;
+ right:16px;
+ width:240px;
+ z-index:999999;
+ background:linear-gradient(180deg,#07192d,#020914);
+ border:1px solid rgba(0,215,255,.25);
+ border-radius:24px;
+ padding:16px;
+ box-shadow:0 0 30px rgba(0,0,0,.35);
+ direction:rtl;
+}
+
+#fixedSidebarMenu .sidebarBrand{
+ padding-bottom:14px;
+ margin-bottom:12px;
+ border-bottom:1px solid rgba(255,255,255,.08);
+ text-align:center;
+}
+
+#fixedSidebarMenu .brandTitle{
+ color:#fff;
+ font-size:16px;
+ font-weight:900;
+ line-height:1.7;
+}
+
+#fixedSidebarMenu .brandSub{
+ color:#9ee7ff;
+ font-size:11px;
+ margin-top:5px;
+ direction:ltr;
+}
+
+#fixedSidebarMenu button{
+ width:100%;
+ min-height:50px;
+ border:none;
+ margin:8px 0;
+ border-radius:14px;
+ background:linear-gradient(135deg,#0b4f86,#0ea5e9);
+ color:#fff;
+ font-size:15px;
+ font-weight:900;
+ cursor:pointer;
+}
+
+#fixedSidebarMenu button:hover{
+ transform:translateX(-2px);
+}
+
+#fixedSidebarMenu .logoutBtn{
+ background:linear-gradient(135deg,#7f1d1d,#dc2626);
+}
+
+body{
+ padding-right:280px !important;
+}
+
+@media(max-width:900px){
+ #fixedSidebarMenu{
+   position:relative;
+   width:calc(100% - 32px);
+   right:auto;
+   top:auto;
+   margin:16px;
+ }
+ body{
+   padding-right:0 !important;
+ }
+}
+</style>
+
 </head>
 <body>
+
+<div id="fixedSidebarMenu">
+  <div class="sidebarBrand">
+    <div class="brandTitle">منصة القيادة الصحية الذكية للوفيات</div>
+    <div class="brandSub">Smart ICU Mortality Platform</div>
+  </div>
+
+  <button onclick="showMainDashboardPage()">🏠 الرئيسية</button>
+
+  <button onclick="document.getElementById('settingsLayer').classList.add('active')">
+    ⚙️ الإعدادات
+  </button>
+
+  <button onclick="document.getElementById('calculationLayer').classList.add('active')">
+    🧮 طريقة حساب المنصة
+  </button>
+
+  <button onclick="showExecutiveBriefLayer()">
+    📋 التقرير التنفيذي
+  </button>
+
+  <button onclick="toggleCinematicMode()">
+    🖥 وضع العرض
+  </button>
+
+  <button class="logoutBtn" onclick="platformLogout()">
+    🚪 تسجيل خروج
+  </button>
+</div>
+
 
 <div id="calculationLayer">
   <div class="calc-header">
@@ -2015,18 +2121,7 @@ body.login-unlocked .container{
 </div>
 
 <div class="container sideShell">
-  <aside class="rightSideMenu">
-    <div class="sideLogo">
-      <div class="sideTitle">منصة القيادة الصحية الذكية للوفيات</div>
-      <div class="sideSub">Smart ICU Mortality Platform</div>
-    </div>
-    <button id="navDashboard" class="sideMenuBtn active" onclick="showPlatformPage('dashboard')">🏠 الرئيسية</button>
-    <button id="navSettings" class="sideMenuBtn" onclick="showPlatformPage('settings')">⚙️ الإعدادات</button>
-    <button id="navCalculation" class="sideMenuBtn" onclick="showPlatformPage('calculation')">🧮 طريقة حساب المنصة</button>
-    <button class="sideMenuBtn" onclick="showExecutiveBriefLayer()">📋 التقرير التنفيذي</button>
-    <button class="sideMenuBtn" onclick="toggleCinematicMode()">🖥 وضع العرض</button>
-    <button class="sideMenuBtn danger" onclick="platformLogout()">🚪 تسجيل خروج</button>
-  </aside>
+  
   <main class="pageContent">
     <section id="dashboardPage" class="platformPage active">
 
