@@ -1592,24 +1592,28 @@ body.login-unlocked .container{
 
 
 <style>
-/* ===== FIXED EXECUTIVE TOP NAVIGATION ===== */
-.execTopNav{
-  position:sticky;
-  top:0;
-  z-index:99990;
-  display:grid;
-  grid-template-columns:repeat(6,minmax(120px,1fr));
-  gap:10px;
-  margin:0 0 16px 0;
-  padding:12px;
-  border-radius:22px;
-  background:linear-gradient(135deg,rgba(7,25,45,.96),rgba(3,12,23,.98));
-  border:1px solid rgba(0,215,255,.26);
-  box-shadow:0 8px 28px rgba(0,0,0,.28),0 0 22px rgba(0,215,255,.08);
-  direction:rtl;
+/* ===== CLEAN EXECUTIVE NAV + WORKING PAGE MODALS ===== */
+.execTopNav,
+#fixedSidebarMenu,
+.rightSideMenu{
+  display:none!important;
 }
-.execTopNav button{
-  min-height:48px!important;
+
+.cleanExecutiveNav{
+  display:grid!important;
+  grid-template-columns:repeat(6,minmax(120px,1fr))!important;
+  gap:10px!important;
+  margin:0 0 16px 0!important;
+  padding:12px!important;
+  border-radius:22px!important;
+  background:linear-gradient(135deg,rgba(7,25,45,.96),rgba(3,12,23,.98))!important;
+  border:1px solid rgba(0,215,255,.26)!important;
+  box-shadow:0 8px 28px rgba(0,0,0,.28),0 0 22px rgba(0,215,255,.08)!important;
+  direction:rtl!important;
+}
+
+.cleanExecutiveNav button{
+  min-height:50px!important;
   border-radius:14px!important;
   padding:10px 12px!important;
   font-size:15px!important;
@@ -1618,202 +1622,173 @@ body.login-unlocked .container{
   border:1px solid rgba(125,211,252,.55)!important;
   color:#fff!important;
   cursor:pointer!important;
+  text-align:center!important;
+  box-shadow:inset 0 0 14px rgba(255,255,255,.06),0 0 14px rgba(14,165,233,.10)!important;
 }
-.execTopNav button:hover{
-  transform:translateY(-1px);
-  box-shadow:0 0 20px rgba(14,165,233,.24)!important;
-}
-.execTopNav .navSettings{background:linear-gradient(135deg,#334155,#0f766e)!important}
-.execTopNav .navCalc{background:linear-gradient(135deg,#1e3a8a,#0891b2)!important}
-.execTopNav .navBrief{background:linear-gradient(135deg,#713f12,#ca8a04)!important}
-.execTopNav .navLogout{background:linear-gradient(135deg,#7f1d1d,#dc2626)!important}
-@media(max-width:950px){
-  .execTopNav{grid-template-columns:repeat(2,minmax(130px,1fr))}
-}
-</style>
 
+.cleanExecutiveNav button:hover{
+  transform:translateY(-1px)!important;
+  box-shadow:0 0 20px rgba(14,165,233,.25)!important;
+}
 
-<style>
-/* ===== RIGHT SIDE EXECUTIVE MENU + PAGE SYSTEM ===== */
-.execTopNav{display:none!important}
+.cleanExecutiveNav .settings{background:linear-gradient(135deg,#334155,#0f766e)!important}
+.cleanExecutiveNav .calc{background:linear-gradient(135deg,#1e3a8a,#0891b2)!important}
+.cleanExecutiveNav .brief{background:linear-gradient(135deg,#713f12,#ca8a04)!important}
+.cleanExecutiveNav .logout{background:linear-gradient(135deg,#7f1d1d,#dc2626)!important}
 
-.sideShell{
-  display:grid;
-  grid-template-columns:250px minmax(0,1fr);
-  gap:16px;
-  align-items:start;
-  direction:rtl;
-}
-.rightSideMenu{
-  position:sticky;
-  top:14px;
-  z-index:99991;
-  min-height:calc(100vh - 28px);
-  border-radius:24px;
-  padding:16px 12px;
-  background:
-    radial-gradient(circle at top,rgba(0,215,255,.16),transparent 38%),
-    linear-gradient(180deg,rgba(7,25,45,.98),rgba(3,12,23,.99));
-  border:1px solid rgba(0,215,255,.28);
-  box-shadow:0 10px 30px rgba(0,0,0,.30),0 0 24px rgba(0,215,255,.09);
-}
-.sideLogo{
-  text-align:center;
-  padding:8px 8px 14px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  margin-bottom:12px;
-}
-.sideLogo .sideTitle{
-  font-size:16px;
-  font-weight:900;
-  color:#fff;
-  line-height:1.6;
-}
-.sideLogo .sideSub{
-  font-size:11px;
-  color:#9ee7ff;
-  direction:ltr;
-  margin-top:4px;
-}
-.sideMenuBtn{
-  width:100%;
-  min-height:52px!important;
-  margin:7px 0!important;
-  border-radius:16px!important;
-  padding:12px 14px!important;
-  font-size:15px!important;
-  font-weight:900!important;
-  text-align:right!important;
+.cleanModal{
+  position:fixed!important;
+  inset:0!important;
+  z-index:999999!important;
+  display:none!important;
+  overflow:auto!important;
+  padding:28px!important;
   color:#fff!important;
+  direction:rtl!important;
+  background:
+    radial-gradient(circle at 18% 8%,rgba(0,215,255,.16),transparent 31%),
+    radial-gradient(circle at 82% 18%,rgba(34,197,94,.10),transparent 32%),
+    linear-gradient(135deg,#020914,#07192d 56%,#01040a)!important;
+}
+
+.cleanModal.active{
+  display:block!important;
+}
+
+.cleanModalHeader{
+  display:grid!important;
+  grid-template-columns:1fr auto!important;
+  gap:16px!important;
+  align-items:center!important;
+  background:linear-gradient(135deg,rgba(8,30,52,.97),rgba(4,16,29,.99))!important;
+  border:1px solid rgba(0,215,255,.34)!important;
+  border-radius:26px!important;
+  padding:24px 28px!important;
+  box-shadow:0 0 32px rgba(0,215,255,.13)!important;
+  margin-bottom:18px!important;
+}
+
+.cleanModalHeader h1{
+  margin:0!important;
+  font-size:34px!important;
+  font-weight:900!important;
+}
+
+.cleanModalHeader p{
+  margin:8px 0 0!important;
+  color:#b8d8e8!important;
+  line-height:1.8!important;
+}
+
+.cleanCloseBtn{
+  min-width:170px!important;
   background:linear-gradient(135deg,#0b4f86,#0ea5e9)!important;
-  border:1px solid rgba(125,211,252,.45)!important;
-  cursor:pointer!important;
-  box-shadow:inset 0 0 14px rgba(255,255,255,.05),0 0 14px rgba(14,165,233,.09)!important;
+  border:1px solid rgba(125,211,252,.72)!important;
+  border-radius:15px!important;
+  color:#fff!important;
+  padding:14px 20px!important;
+  font-size:16px!important;
+  font-weight:900!important;
 }
-.sideMenuBtn:hover{
-  transform:translateX(-2px);
-  box-shadow:0 0 22px rgba(14,165,233,.22)!important;
+
+.cleanGrid2{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
 }
-.sideMenuBtn.active{
-  background:linear-gradient(135deg,#14532d,#22c55e)!important;
-  border-color:rgba(134,239,172,.65)!important;
+
+.cleanGrid3{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
 }
-.sideMenuBtn.danger{
-  background:linear-gradient(135deg,#7f1d1d,#dc2626)!important;
-  border-color:rgba(248,113,113,.65)!important;
-}
-.pageContent{
-  min-width:0;
-}
-.platformPage{
-  display:none;
-  animation:pageFade .25s ease;
-}
-.platformPage.active{
-  display:block;
-}
-@keyframes pageFade{
-  from{opacity:0;transform:translateY(8px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.pagePanel{
+
+.cleanCard{
   background:
     radial-gradient(circle at top right,rgba(0,215,255,.10),transparent 34%),
-    linear-gradient(180deg,rgba(9,30,52,.97),rgba(4,16,29,.99));
-  border:1px solid rgba(0,215,255,.22);
-  border-radius:26px;
-  padding:24px;
-  color:#fff;
-  box-shadow:0 0 26px rgba(0,215,255,.08);
+    linear-gradient(180deg,rgba(9,30,52,.97),rgba(4,16,29,.99))!important;
+  border:1px solid rgba(0,215,255,.22)!important;
+  border-radius:24px!important;
+  padding:20px!important;
+  color:#fff!important;
+  box-shadow:0 0 24px rgba(0,215,255,.08)!important;
 }
-.pageHero{
-  border-radius:26px;
-  padding:26px;
-  margin-bottom:18px;
-  background:linear-gradient(135deg,rgba(8,30,52,.98),rgba(4,16,29,.99));
-  border:1px solid rgba(0,215,255,.28);
-  box-shadow:0 0 30px rgba(0,215,255,.10);
+
+.cleanCard h2,.cleanCard h3{
+  margin:0 0 10px!important;
+  color:#eaffff!important;
 }
-.pageHero h1{
-  margin:0;
-  font-size:34px;
-  font-weight:900;
+
+.cleanCard p,.cleanCard li{
+  color:#b8d8e8!important;
+  line-height:1.85!important;
+  font-size:14px!important;
 }
-.pageHero p{
-  margin:10px 0 0;
-  color:#b8d8e8;
-  line-height:1.8;
+
+.cleanCard input{
+  width:100%!important;
+  height:50px!important;
+  border-radius:14px!important;
+  border:1px solid rgba(0,215,255,.22)!important;
+  background:rgba(2,10,20,.58)!important;
+  color:#fff!important;
+  padding:0 14px!important;
+  font-size:16px!important;
+  direction:ltr!important;
+  text-align:left!important;
+  margin:7px 0 11px!important;
 }
-.sideSettingsGrid,.sideCalcCards{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
+
+.cleanFormula{
+  direction:ltr!important;
+  text-align:left!important;
+  background:rgba(2,10,20,.70)!important;
+  border:1px solid rgba(0,215,255,.20)!important;
+  border-radius:16px!important;
+  padding:14px!important;
+  color:#9ee7ff!important;
+  font-weight:900!important;
+  line-height:1.8!important;
+  overflow:auto!important;
 }
-.sideCalcCards{
-  grid-template-columns:repeat(3,minmax(0,1fr));
+
+.cleanIcon{
+  width:56px!important;
+  height:56px!important;
+  border-radius:18px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:30px!important;
+  background:linear-gradient(135deg,rgba(14,165,233,.22),rgba(34,197,94,.16))!important;
+  border:1px solid rgba(125,211,252,.25)!important;
+  margin-bottom:12px!important;
 }
-.sideInfoCard{
-  background:linear-gradient(180deg,rgba(9,30,52,.96),rgba(4,16,29,.98));
-  border:1px solid rgba(0,215,255,.20);
-  border-radius:22px;
-  padding:20px;
-  min-height:180px;
-}
-.sideInfoCard h2,.sideInfoCard h3{
-  margin:0 0 10px;
-  color:#eaffff;
-}
-.sideInfoCard p,.sideInfoCard li{
-  color:#b8d8e8;
-  line-height:1.85;
-  font-size:14px;
-}
-.sideInfoCard input{
-  width:100%;
-  height:50px;
+
+.cleanMsg{
+  display:none;
+  margin-top:10px;
   border-radius:14px;
-  border:1px solid rgba(0,215,255,.22);
-  background:rgba(2,10,20,.58);
-  color:#fff;
-  padding:0 14px;
-  font-size:16px;
-  direction:ltr;
-  text-align:left;
-  margin:7px 0 11px;
+  padding:10px;
+  text-align:center;
+  font-weight:800;
 }
-.sideMiniFormula{
-  direction:ltr;
-  text-align:left;
-  background:rgba(2,10,20,.70);
-  border:1px solid rgba(0,215,255,.20);
-  border-radius:16px;
-  padding:14px;
-  color:#9ee7ff;
-  font-weight:900;
-  line-height:1.8;
-  overflow:auto;
+.cleanMsg.ok{color:#d1fae5;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.32)}
+.cleanMsg.err{color:#ffd2d2;background:rgba(239,68,68,.14);border:1px solid rgba(239,68,68,.32)}
+
+.cleanState{font-size:38px;font-weight:900;margin:10px 0}
+.cleanState.on{color:#4ade80}
+.cleanState.off{color:#f87171}
+
+@media(max-width:1100px){
+  .cleanExecutiveNav{grid-template-columns:repeat(2,minmax(120px,1fr))!important}
+  .cleanGrid3{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .cleanGrid2{grid-template-columns:1fr!important}
+  .cleanModalHeader{grid-template-columns:1fr!important}
 }
-.calcIcon{
-  width:56px;height:56px;border-radius:18px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:30px;
-  background:linear-gradient(135deg,rgba(14,165,233,.22),rgba(34,197,94,.16));
-  border:1px solid rgba(125,211,252,.25);
-  margin-bottom:12px;
-}
-.system-state{font-size:38px;font-weight:900;margin:10px 0}
-.system-on{color:#4ade80}.system-off{color:#f87171}
-.smallMsg{display:none;margin-top:10px;border-radius:14px;padding:10px;text-align:center;font-weight:800}
-.smallMsg.ok{color:#d1fae5;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.32)}
-.smallMsg.err{color:#ffd2d2;background:rgba(239,68,68,.14);border:1px solid rgba(239,68,68,.32)}
-@media(max-width:1150px){
-  .sideShell{grid-template-columns:1fr}
-  .rightSideMenu{position:relative;min-height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-  .sideLogo{grid-column:1/-1}
-  .sideCalcCards{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media(max-width:700px){
-  .rightSideMenu,.sideSettingsGrid,.sideCalcCards{grid-template-columns:1fr}
+
+@media(max-width:650px){
+  .cleanExecutiveNav,.cleanGrid3{grid-template-columns:1fr!important}
 }
 </style>
 
@@ -2014,30 +1989,16 @@ body.login-unlocked .container{
   </div>
 </div>
 
-<div class="container sideShell">
-  <aside class="rightSideMenu">
-    <div class="sideLogo">
-      <div class="sideTitle">منصة القيادة الصحية الذكية للوفيات</div>
-      <div class="sideSub">Smart ICU Mortality Platform</div>
-    </div>
-    <button id="navDashboard" class="sideMenuBtn active" onclick="showPlatformPage('dashboard')">🏠 الرئيسية</button>
-    <button id="navSettings" class="sideMenuBtn" onclick="showPlatformPage('settings')">⚙️ الإعدادات</button>
-    <button id="navCalculation" class="sideMenuBtn" onclick="showPlatformPage('calculation')">🧮 طريقة حساب المنصة</button>
-    <button class="sideMenuBtn" onclick="showExecutiveBriefLayer()">📋 التقرير التنفيذي</button>
-    <button class="sideMenuBtn" onclick="toggleCinematicMode()">🖥 وضع العرض</button>
-    <button class="sideMenuBtn danger" onclick="platformLogout()">🚪 تسجيل خروج</button>
-  </aside>
-  <main class="pageContent">
-    <section id="dashboardPage" class="platformPage active">
+<div class="container">
 
-  <div class="execTopNav">
-    <button onclick="window.scrollTo({top:0,behavior:'smooth'})">🏠 الرئيسية</button>
-    <button class="navSettings" onclick="openSettingsLayer()">⚙️ الإعدادات</button>
-    <button class="navCalc" onclick="openCalculationLayer()">🧮 طريقة حساب المنصة</button>
-    <button class="navBrief" onclick="showExecutiveBriefLayer()">📋 التقرير التنفيذي</button>
-    <button onclick="toggleCinematicMode()">🖥 وضع العرض</button>
-    <button class="navLogout" onclick="platformLogout()">🚪 تسجيل خروج</button>
-  </div>
+<div class="cleanExecutiveNav">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">🏠 الرئيسية</button>
+  <button class="settings" onclick="openCleanSettings()">⚙️ الإعدادات</button>
+  <button class="calc" onclick="openCleanCalculation()">🧮 طريقة حساب المنصة</button>
+  <button class="brief" onclick="safeExecutiveBrief()">📋 التقرير التنفيذي</button>
+  <button onclick="safeCinematicMode()">🖥 وضع العرض</button>
+  <button class="logout" onclick="safeLogout()">🚪 تسجيل خروج</button>
+</div>
 
   <div class="header">
 <div class="brand box">
@@ -2162,75 +2123,6 @@ body.login-unlocked .container{
       <p id="executiveActionFinding">سيتم اقتراح الإجراء الأفضل حسب مستوى الخطر والسيناريوهات.</p>
     </div>
   </div>
-</div>
-
-    </section>
-    <section id="settingsPage" class="platformPage">
-      <div class="pageHero">
-        <h1>إعدادات المنصة</h1>
-        <p>تغيير كلمة المرور، إيقاف النظام، وإعادة التفعيل بدون فقدان البيانات.</p>
-      </div>
-      <div class="sideSettingsGrid">
-        <div class="sideInfoCard">
-          <h2>تغيير الرقم السري</h2>
-          <p>كلمة المرور لم تعد ثابتة. يمكن تغييرها وحفظها محلياً داخل المتصفح لهذه النسخة التجريبية.</p>
-          <label>كلمة المرور الحالية</label>
-          <input id="currentPasswordInput2" type="password" placeholder="Current Password">
-          <label>كلمة المرور الجديدة</label>
-          <input id="newPasswordInput2" type="password" placeholder="New Password">
-          <label>تأكيد كلمة المرور الجديدة</label>
-          <input id="confirmPasswordInput2" type="password" placeholder="Confirm New Password">
-          <button onclick="changePlatformPasswordSide()">حفظ كلمة المرور الجديدة</button>
-          <div class="smallMsg ok" id="passwordSuccess2">تم تغيير كلمة المرور بنجاح</div>
-          <div class="smallMsg err" id="passwordError2">تعذر تغيير كلمة المرور</div>
-        </div>
-        <div class="sideInfoCard">
-          <h2>حالة النظام</h2>
-          <p>يمكن إيقاف المنصة بالكامل مؤقتاً دون حذف أو فقدان أي بيانات محفوظة.</p>
-          <div class="system-state" id="systemStateText2">--</div>
-          <button class="system-danger" onclick="disablePlatformSystemSide()">إيقاف النظام كلياً</button>
-          <button class="system-activate" onclick="enablePlatformSystemSide()">إعادة تفعيل النظام</button>
-          <div class="smallMsg ok" id="systemSuccess2">تم تحديث حالة النظام</div>
-        </div>
-      </div>
-    </section>
-    <section id="calculationPage" class="platformPage">
-      <div class="pageHero">
-        <h1>طريقة حساب المنصة</h1>
-        <p>شرح تنفيذي ومنهجي لكيفية احتساب كل مؤشر وبطاقة داخل منصة القيادة الصحية الذكية للوفيات.</p>
-      </div>
-      <div class="sideSettingsGrid">
-        <div class="sideInfoCard">
-          <h2>المنهجية العامة</h2>
-          <p>تعتمد المنصة على تحويل البيانات التشغيلية اليومية إلى مؤشرات من 0 إلى 100 ثم دمجها في مؤشر خطورة مركب يدعم القرار التنفيذي.</p>
-          <div class="sideMiniFormula">Risk Score = ICU Occupancy × 25% + Response Delay × 20% + Mortality Volume × 20% + Critical Cases × 15% + Bed Pressure × 10% + Staff Pressure × 10%</div>
-        </div>
-        <div class="sideInfoCard">
-          <h2>تصنيف مستوى الخطر</h2>
-          <ul>
-            <li><b style="color:#4ade80">0–34:</b> حالة طبيعية / خطر منخفض.</li>
-            <li><b style="color:#fbbf24">35–54:</b> خطر متوسط — متابعة مستمرة.</li>
-            <li><b style="color:#fb923c">55–74:</b> خطر مرتفع — متابعة مكثفة.</li>
-            <li><b style="color:#f87171">75–100:</b> خطر حرج — تدخل فوري.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="sideCalcCards" style="margin-top:16px">
-        <div class="sideInfoCard"><div class="calcIcon">📊</div><h3>مستوى الخطر العام</h3><p>يجمع الإشغال، زمن الاستجابة، الوفيات، الحالات الحرجة، الأسرة، والكادر في درجة واحدة.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">🔮</div><h3>الوفيات المتوقعة 72 ساعة</h3><p>تقدير يعتمد على آخر اتجاه للوفيات ومستوى الخطورة والإشغال والحالات الحرجة.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">⏱️</div><h3>زمن الاستجابة</h3><p>متوسط زمن الاستجابة للحالات الحرجة. كلما زاد الزمن ارتفعت الخطورة.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">🛏️</div><h3>إشغال العناية المركزة</h3><p>متوسط نسب إشغال العناية المركزة ويعكس الضغط التشغيلي على الأسرة.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">⚰️</div><h3>إجمالي الوفيات</h3><p>جمع عدد الوفيات خلال الفترة أو احتسابها من بيانات المرضى حسب توفر الأعمدة.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">🧠</div><h3>الدقة التنبؤية</h3><p>تعتمد على اكتمال الحقول الأساسية وانتظام التواريخ وتوفر بيانات المرضى.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">🏥</div><h3>مصفوفة المستشفيات</h3><p>تجميع الوفيات لكل مستشفى وتصنيفها حسب الحجم النسبي ومستوى الخطورة.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">👥</div><h3>العمر والجنس</h3><p>تصنيف الأعمار وحساب نسب الذكور والإناث من بيانات المرضى.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">🚨</div><h3>التنبيه التنفيذي</h3><p>اختيار أعلى مستشفى أو أعلى مستوى خطر لإبراز الأولوية القيادية.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">📈</div><h3>اتجاه الوفيات</h3><p>فرز البيانات حسب التاريخ وعرض آخر 7 نقاط زمنية من الوفيات.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">🧾</div><h3>التقرير التنفيذي</h3><p>سحب أهم القيم وتحويلها إلى ملخص تنفيذي جاهز للنسخ والعرض.</p></div>
-        <div class="sideInfoCard"><div class="calcIcon">🎙️</div><h3>الشرح الصوتي</h3><p>استخدام Web Speech API لقراءة الملخص التنفيذي بالعربية أو الإنجليزية.</p></div>
-      </div>
-    </section>
-  </main>
 </div>
 <div id="executiveToast" class="executive-toast">
   <b id="executiveToastTitle"></b>
@@ -3484,100 +3376,179 @@ function hideCalculationLayer(){
 </script>
 
 
-<script>
-/* ===== NAV FALLBACK PAGE OPENERS ===== */
-if(typeof openSettingsLayer !== "function"){
-  function openSettingsLayer(){
-    const layer=document.getElementById("settingsLayer");
-    if(layer){layer.classList.add("active");}
-    if(typeof applySystemState==="function") applySystemState();
-  }
-}
-if(typeof hideSettingsLayer !== "function"){
-  function hideSettingsLayer(){
-    const layer=document.getElementById("settingsLayer");
-    if(layer){layer.classList.remove("active");}
-  }
-}
-if(typeof openCalculationLayer !== "function"){
-  function openCalculationLayer(){
-    const layer=document.getElementById("calculationLayer");
-    if(layer){layer.classList.add("active");}
-  }
-}
-if(typeof hideCalculationLayer !== "function"){
-  function hideCalculationLayer(){
-    const layer=document.getElementById("calculationLayer");
-    if(layer){layer.classList.remove("active");}
-  }
-}
-if(typeof platformLogout !== "function"){
-  function platformLogout(){
-    localStorage.removeItem("smartIcuLoggedIn");
-    location.reload();
-  }
-}
-</script>
+<div id="cleanSettingsModal" class="cleanModal">
+  <div class="cleanModalHeader">
+    <div>
+      <h1>إعدادات المنصة</h1>
+      <p>تغيير كلمة المرور، إيقاف النظام، وإعادة التفعيل بدون فقدان البيانات.</p>
+    </div>
+    <button class="cleanCloseBtn" onclick="closeCleanSettings()">العودة للوحة القيادة</button>
+  </div>
+  <div class="cleanGrid2">
+    <div class="cleanCard">
+      <h2>تغيير الرقم السري</h2>
+      <p>كلمة المرور لم تعد ثابتة داخل الكود. يمكن تغييرها وحفظها محلياً داخل المتصفح لهذه النسخة التجريبية.</p>
+      <label>كلمة المرور الحالية</label>
+      <input id="cleanCurrentPassword" type="password" placeholder="Current Password">
+      <label>كلمة المرور الجديدة</label>
+      <input id="cleanNewPassword" type="password" placeholder="New Password">
+      <label>تأكيد كلمة المرور الجديدة</label>
+      <input id="cleanConfirmPassword" type="password" placeholder="Confirm Password">
+      <button onclick="cleanChangePassword()">حفظ كلمة المرور الجديدة</button>
+      <div id="cleanPasswordOk" class="cleanMsg ok">تم تغيير كلمة المرور بنجاح</div>
+      <div id="cleanPasswordErr" class="cleanMsg err">تعذر تغيير كلمة المرور</div>
+    </div>
+    <div class="cleanCard">
+      <h2>حالة النظام</h2>
+      <p>يمكنك إيقاف المنصة بالكامل مؤقتاً دون حذف أو فقدان أي بيانات محفوظة.</p>
+      <div id="cleanSystemState" class="cleanState on">النظام يعمل</div>
+      <button onclick="cleanDisableSystem()" style="background:linear-gradient(135deg,#7f1d1d,#dc2626)!important">إيقاف النظام كلياً</button>
+      <button onclick="cleanEnableSystem()" style="background:linear-gradient(135deg,#14532d,#22c55e)!important">إعادة تفعيل النظام</button>
+      <div id="cleanSystemOk" class="cleanMsg ok">تم تحديث حالة النظام</div>
+    </div>
+  </div>
+</div>
+
+<div id="cleanCalculationModal" class="cleanModal">
+  <div class="cleanModalHeader">
+    <div>
+      <h1>طريقة حساب المنصة</h1>
+      <p>شرح تنفيذي ومنهجي لكيفية احتساب كل مؤشر وبطاقة داخل منصة القيادة الصحية الذكية للوفيات.</p>
+    </div>
+    <button class="cleanCloseBtn" onclick="closeCleanCalculation()">العودة للوحة القيادة</button>
+  </div>
+
+  <div class="cleanGrid2">
+    <div class="cleanCard">
+      <h2>المنهجية العامة</h2>
+      <p>تعتمد المنصة على تحويل البيانات التشغيلية اليومية إلى مؤشرات من 0 إلى 100 ثم دمجها في مؤشر خطورة مركب يدعم القرار التنفيذي.</p>
+      <div class="cleanFormula">Risk Score = ICU Occupancy × 25% + Response Delay × 20% + Mortality Volume × 20% + Critical Cases × 15% + Bed Pressure × 10% + Staff Pressure × 10%</div>
+    </div>
+    <div class="cleanCard">
+      <h2>تصنيف مستوى الخطر</h2>
+      <ul>
+        <li><b style="color:#4ade80">0–34:</b> حالة طبيعية / خطر منخفض.</li>
+        <li><b style="color:#fbbf24">35–54:</b> خطر متوسط — متابعة مستمرة.</li>
+        <li><b style="color:#fb923c">55–74:</b> خطر مرتفع — متابعة مكثفة.</li>
+        <li><b style="color:#f87171">75–100:</b> خطر حرج — تدخل فوري.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cleanGrid3" style="margin-top:16px">
+    <div class="cleanCard"><div class="cleanIcon">📊</div><h3>مستوى الخطر العام</h3><p>يجمع الإشغال، زمن الاستجابة، الوفيات، الحالات الحرجة، الأسرة، والكادر في درجة واحدة.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">🔮</div><h3>الوفيات المتوقعة 72 ساعة</h3><p>تقدير يعتمد على آخر اتجاه للوفيات ومستوى الخطورة والإشغال والحالات الحرجة.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">⏱️</div><h3>زمن الاستجابة</h3><p>متوسط زمن الاستجابة للحالات الحرجة. كلما زاد الزمن ارتفعت الخطورة.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">🛏️</div><h3>إشغال العناية المركزة</h3><p>متوسط نسب إشغال العناية المركزة ويعكس الضغط التشغيلي على الأسرة.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">⚰️</div><h3>إجمالي الوفيات</h3><p>جمع عدد الوفيات خلال الفترة أو احتسابها من بيانات المرضى حسب توفر الأعمدة.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">🧠</div><h3>الدقة التنبؤية</h3><p>تعتمد على اكتمال الحقول الأساسية وانتظام التواريخ وتوفر بيانات المرضى.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">🏥</div><h3>مصفوفة المستشفيات</h3><p>تجميع الوفيات لكل مستشفى وتصنيفها حسب الحجم النسبي ومستوى الخطورة.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">👥</div><h3>العمر والجنس</h3><p>تصنيف الأعمار وحساب نسب الذكور والإناث من بيانات المرضى.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">🚨</div><h3>التنبيه التنفيذي</h3><p>اختيار أعلى مستشفى أو أعلى مستوى خطر لإبراز الأولوية القيادية.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">📈</div><h3>اتجاه الوفيات</h3><p>فرز البيانات حسب التاريخ وعرض آخر 7 نقاط زمنية من الوفيات.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">🧾</div><h3>التقرير التنفيذي</h3><p>سحب أهم القيم وتحويلها إلى ملخص تنفيذي جاهز للنسخ والعرض.</p></div>
+    <div class="cleanCard"><div class="cleanIcon">🎙️</div><h3>الشرح الصوتي</h3><p>استخدام Web Speech API لقراءة الملخص التنفيذي بالعربية أو الإنجليزية.</p></div>
+  </div>
+</div>
 
 
 <script>
-/* ===== SIDE MENU MULTI PAGE LOGIC ===== */
-function showPlatformPage(page){
-  const pages = ["dashboard","settings","calculation"];
-  pages.forEach(p=>{
-    const sec=document.getElementById(p+"Page");
-    const nav=document.getElementById("nav"+p.charAt(0).toUpperCase()+p.slice(1));
-    if(sec) sec.classList.toggle("active", p===page);
-    if(nav) nav.classList.toggle("active", p===page);
-  });
-  window.scrollTo({top:0,behavior:"smooth"});
-  if(page==="settings" && typeof applySystemStateSide==="function") applySystemStateSide();
+/* ===== CLEAN NAV BUTTON LOGIC - GUARANTEED ===== */
+function cleanHash(str){
+  let h = 2166136261;
+  str = String(str || "");
+  for(let i=0;i<str.length;i++){
+    h ^= str.charCodeAt(i);
+    h += (h<<1) + (h<<4) + (h<<7) + (h<<8) + (h<<24);
+  }
+  return (h >>> 0).toString(16);
 }
-function showSmallMsg(id,msg){
+function openCleanSettings(){
+  const m=document.getElementById("cleanSettingsModal");
+  if(m){m.classList.add("active"); cleanRefreshSystemState();}
+}
+function closeCleanSettings(){
+  const m=document.getElementById("cleanSettingsModal");
+  if(m)m.classList.remove("active");
+}
+function openCleanCalculation(){
+  const m=document.getElementById("cleanCalculationModal");
+  if(m)m.classList.add("active");
+}
+function closeCleanCalculation(){
+  const m=document.getElementById("cleanCalculationModal");
+  if(m)m.classList.remove("active");
+}
+function cleanMsg(id,msg){
   const e=document.getElementById(id);
   if(!e)return;
   e.textContent=msg;
   e.style.display="block";
   setTimeout(()=>{e.style.display="none"},3000);
 }
-function applySystemStateSide(){
-  const disabled = localStorage.getItem("smartIcuSystemDisabled")==="1";
-  const state=document.getElementById("systemStateText2");
+function cleanStoredHash(){
+  let h=localStorage.getItem("smartIcuPasswordHash");
+  if(!h){
+    h=cleanHash("1234");
+    localStorage.setItem("smartIcuPasswordHash",h);
+  }
+  return h;
+}
+function cleanCheckPassword(p){
+  if(typeof isPasswordCorrect==="function") return isPasswordCorrect(p);
+  return cleanHash(p)===cleanStoredHash();
+}
+function cleanChangePassword(){
+  const cur=document.getElementById("cleanCurrentPassword").value||"";
+  const nxt=document.getElementById("cleanNewPassword").value||"";
+  const con=document.getElementById("cleanConfirmPassword").value||"";
+  if(!cleanCheckPassword(cur)){cleanMsg("cleanPasswordErr","كلمة المرور الحالية غير صحيحة");return;}
+  if(nxt.length<4){cleanMsg("cleanPasswordErr","كلمة المرور الجديدة يجب أن تكون 4 خانات على الأقل");return;}
+  if(nxt!==con){cleanMsg("cleanPasswordErr","تأكيد كلمة المرور غير مطابق");return;}
+  const h=(typeof simpleHash==="function") ? simpleHash(nxt) : cleanHash(nxt);
+  localStorage.setItem("smartIcuPasswordHash",h);
+  document.getElementById("cleanCurrentPassword").value="";
+  document.getElementById("cleanNewPassword").value="";
+  document.getElementById("cleanConfirmPassword").value="";
+  cleanMsg("cleanPasswordOk","تم تغيير كلمة المرور بنجاح");
+}
+function cleanRefreshSystemState(){
+  const disabled=localStorage.getItem("smartIcuSystemDisabled")==="1";
+  const state=document.getElementById("cleanSystemState");
   if(state){
-    state.textContent = disabled ? "النظام متوقف" : "النظام يعمل";
-    state.className = "system-state " + (disabled ? "system-off" : "system-on");
+    state.textContent=disabled?"النظام متوقف":"النظام يعمل";
+    state.className="cleanState "+(disabled?"off":"on");
   }
-  const overlay=document.getElementById("systemDisabledOverlay");
-  if(overlay) overlay.classList.toggle("active", disabled);
 }
-function changePlatformPasswordSide(){
-  const current=document.getElementById("currentPasswordInput2")?.value||"";
-  const next=document.getElementById("newPasswordInput2")?.value||"";
-  const confirm=document.getElementById("confirmPasswordInput2")?.value||"";
-  if(typeof isPasswordCorrect==="function" && !isPasswordCorrect(current)){
-    showSmallMsg("passwordError2","كلمة المرور الحالية غير صحيحة");return;
-  }
-  if(next.length<4){showSmallMsg("passwordError2","كلمة المرور الجديدة يجب أن تكون 4 خانات على الأقل");return;}
-  if(next!==confirm){showSmallMsg("passwordError2","تأكيد كلمة المرور غير مطابق");return;}
-  if(typeof simpleHash==="function"){
-    localStorage.setItem("smartIcuPasswordHash",simpleHash(next));
-  }else{
-    localStorage.setItem("smartIcuPasswordHash",next);
-  }
-  ["currentPasswordInput2","newPasswordInput2","confirmPasswordInput2"].forEach(id=>{const x=document.getElementById(id); if(x)x.value=""});
-  showSmallMsg("passwordSuccess2","تم تغيير كلمة المرور بنجاح");
-}
-function disablePlatformSystemSide(){
+function cleanDisableSystem(){
   localStorage.setItem("smartIcuSystemDisabled","1");
-  applySystemStateSide();
-  showSmallMsg("systemSuccess2","تم إيقاف النظام بدون فقدان البيانات");
+  cleanRefreshSystemState();
+  cleanMsg("cleanSystemOk","تم إيقاف النظام بدون فقدان البيانات");
 }
-function enablePlatformSystemSide(){
+function cleanEnableSystem(){
   localStorage.setItem("smartIcuSystemDisabled","0");
-  applySystemStateSide();
-  showSmallMsg("systemSuccess2","تم إعادة تفعيل النظام والبيانات محفوظة");
+  cleanRefreshSystemState();
+  cleanMsg("cleanSystemOk","تم إعادة تفعيل النظام والبيانات محفوظة");
 }
-window.addEventListener("load",()=>setTimeout(applySystemStateSide,400));
+function safeExecutiveBrief(){
+  if(typeof showExecutiveBriefLayer==="function"){showExecutiveBriefLayer();return;}
+  if(typeof generateExecutiveBrief==="function"){generateExecutiveBrief();return;}
+  alert("التقرير التنفيذي غير متاح في هذه النسخة.");
+}
+function safeCinematicMode(){
+  if(typeof toggleCinematicMode==="function"){toggleCinematicMode();return;}
+  document.documentElement.requestFullscreen?.();
+}
+function safeLogout(){
+  localStorage.removeItem("smartIcuLoggedIn");
+  location.reload();
+}
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){
+    closeCleanSettings();
+    closeCleanCalculation();
+  }
+});
 </script>
 
 </body>
